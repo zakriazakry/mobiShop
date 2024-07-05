@@ -1,0 +1,293 @@
+ :root {
+     --bg-color: rgb(249, 249, 249);
+     --main-color: rgb(209, 137, 3);
+     --sec-color: var(--main-color);
+ }
+
+ html {
+     scroll-behavior: smooth;
+ }
+
+ * {
+     position: relative;
+     box-sizing: border-box;
+     padding: 0px;
+     margin: 0px;
+     font-family: "Cairo", sans-serif;
+ }
+
+
+ /* golbal */
+ body {
+     direction: rtl;
+ }
+
+ .hidden {
+     display: none;
+     overflow: hidden;
+ }
+
+ span {
+     color: var(--main-color);
+ }
+
+ .divider {
+     height: 2px;
+     width: 100%;
+     background: rgb(240, 240, 240);
+ }
+
+ .button {
+     text-decoration: none;
+     background-color: var(--sec-color);
+     color: white;
+     padding: 5px 12px;
+     font-size: medium;
+     border-radius: 10px;
+     font-weight: 600;
+     margin: 4px;
+     border: none;
+     cursor: pointer;
+     text-align: center;
+     scale: 1;
+     transition: 0.4s;
+ }
+
+ .buttonBorder {
+     text-decoration: none;
+     /* border: 1px solid var(--main-color); */
+     color: var(--sec-color);
+     padding: 5px 12px;
+     font-size: medium;
+     font-weight: 600;
+     margin: 4px;
+     border-radius: 10px;
+     border: none;
+     background: var(--bg-color);
+     cursor: pointer;
+ }
+
+ /* Nav bar */
+ nav {
+     z-index: 99;
+     background: var(--bg-color);
+     border-radius: 10px;
+     position: fixed;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 20px;
+     margin: 15px;
+     width: 98%;
+     align-self: center;
+ }
+
+ #logo {
+
+     text-decoration: none;
+     display: flex;
+     gap: 10px;
+     align-items: center;
+     color: #000;
+     font-weight: bold;
+ }
+
+ #profileImg {
+     /* profile image */
+     width: 40px;
+     border: 2px solid var(--main-color);
+     border-radius: 100%;
+ }
+
+ nav ul {
+     display: flex;
+     justify-content: center;
+
+ }
+
+ nav ul a {
+     padding: 0 20px;
+     text-decoration: none;
+     color: var(--main-color);
+     font-weight: 600;
+ }
+
+ /* Hero */
+
+ .hero {
+     height: 90vh;
+     overflow: hidden;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-around;
+     align-items: center;
+     padding: 10px 25px;
+ }
+
+ .hero .content {
+     width: 50%;
+     display: flex;
+     flex-direction: column;
+     justify-content: end;
+
+ }
+
+ .hero div {
+     margin: 20px;
+ }
+
+ .hero div .button {
+     padding: 5px 16px;
+     background: var(--main-color);
+ }
+
+ .content img {
+     width: 40px;
+ }
+
+ .content h1 {
+     font-size: 50px;
+ }
+
+ .soical {
+     word-spacing: 20px;
+ }
+
+ .soical i {
+     background-color: var(--main-color);
+     padding: 10px;
+     color: white;
+     font-size: 25px;
+     border-radius: 100%;
+ }
+
+ /* Products */
+
+ .Products {
+     display: flex;
+     flex-wrap: wrap;
+     /* flex-direction: column; */
+     justify-content: center;
+     align-items: center;
+ }
+
+ .Products .card {
+     margin: 10px;
+     cursor: pointer;
+     padding: 10px;
+     background-color: var(--bg-color);
+     border-radius: 15px;
+     scale: 1.0;
+     transition: 0.4s;
+ }
+
+ .Products .card:hover {
+     scale: 1.05;
+     transition: 0.4s;
+ }
+
+ .Products .card p {
+     color: grey;
+     font-size: 13px;
+     margin: 10px 0;
+ }
+
+ .Products .card .row {
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+ }
+
+ /* 
+ 
+ cart 
+
+ */
+
+
+ .cart {
+     opacity: 0;
+     visibility: hidden;
+     flex-direction: column;
+     position: absolute;
+     width: 440px;
+     padding: 9px 15px;
+     gap: 10px;
+     align-items: start;
+     left: 5%;
+     z-index: 99;
+     background-color: rgb(255, 255, 255);
+     border: 1px solid var(--main-color);
+     border-radius: 10px;
+     margin-top: 0px;
+     transition: opacity 0.4s, visibility 0.4s;
+ }
+
+ .cart ul {
+     display: flex;
+     flex-direction: column;
+     gap: 10px;
+     max-height: 60vh;
+     overflow: scroll;
+     overflow-x: hidden;
+ }
+
+ .cart ul li {
+     list-style: none;
+     display: flex;
+     align-items: center;
+     justify-content: start;
+     gap: 10px;
+     scale: 1.0;
+     transition: 0.4s;
+ }
+
+ .cart ul li:hover {
+     scale: 1.1;
+     transition: 0.4s;
+ }
+
+ .cart ul li img {
+     object-fit: cover;
+     width: 80px;
+     height: 90px;
+     border-radius: 10%;
+ }
+
+ .cartHoverWrapper:hover .cart {
+     opacity: 1;
+     visibility: visible;
+ }
+
+ .cartHoverWrapper {
+     position: relative;
+ }
+
+
+
+ #about,
+ .footer {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     gap: 10px;
+     align-items: center;
+     width: 100%;
+     padding: 20px;
+ }
+
+ #about p {
+     width: 40%;
+     text-align: center;
+     /* margin: 0 auto; */
+ }
+
+ #about img {
+     width: 25%;
+     margin: 0 auto;
+ }
+
+ .footer {
+     background-color: #123;
+     color: #ffffff;
+ }
