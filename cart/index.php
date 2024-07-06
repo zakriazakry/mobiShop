@@ -34,7 +34,7 @@ $_SESSION['cart'] = [];
        <div class="headCont">
         <img src="https://i.pinimg.com/474x/b5/4c/e1/b54ce1bf5679515d1a062c85037eeb1c.jpg" loading="lazy" alt="">
         <div class="conent">
-            <h2>Zakria zekri</h2>
+            <h2><?php echo $_SESSION['first_name'] . " ".$_SESSION['last_name']; ?></h2>
             <p>Payment checkout</p>
         </div>
        </div>
