@@ -166,7 +166,7 @@ if (isset($_POST['product'])) {
             <p>{$product['description']}</p>
             <div class="row">
                 <p>{$product['price']} دولار</p>
-                <form method="POST" action="{$_SERVER['PHP_SELF']}"> <!-- Replace 'handle_cart.php' with your actual PHP handling script -->
+                <form method="POST" action="{$_SERVER['PHP_SELF']}">
                     <input type="hidden" name="product" value='{$productStr}'>
                     <input type="submit" name="addCart" class="button" value="إضافة إلى السلة">
                 </form>
