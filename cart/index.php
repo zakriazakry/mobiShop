@@ -3,7 +3,7 @@
 
 session_start();
 
-if ($_SERVER['REQUEST_METHOD'] != 'POST' && !isset($_SESSION['cart'])) {
+if ($_SERVER['REQUEST_METHOD'] != 'POST' || !isset($_SESSION['cart']) ) {
     header('Location: http://localhost/web');
     exit;
 }
