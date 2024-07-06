@@ -1,6 +1,10 @@
 <?php
 session_start();
-
+$loggedIn = isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true;
+if ($loggedIn) {
+    header('Location: http://localhost/web');
+    exit;
+}
 ?>
 
 
