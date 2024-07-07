@@ -1,11 +1,70 @@
 <?php
 session_start();
+
+// Check if user is already logged in
 $loggedIn = isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true;
 if ($loggedIn) {
-    header('Location: http://localhost/web');
+    header('Location: http://localhost/web');  // Redirect if already logged in
     exit;
 }
+
+$msg = "";
+
+if (isset($_POST['signup'])) {
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    if (empty($first_name) || empty($last_name) || empty($email) || empty($password)) {
+        $msg = "يرجى ملء جميع الحقول";
+    } else {
+        $expiry = time() + (30 * 24 * 60 * 60);
+        $users = json_decode($_COOKIE['users'], true);
+
+        $emailExists = false;
+        foreach ($users as $user) {
+            if ($user['email'] == $email) {
+                $emailExists = true;
+                break;
+            }
+        }
+
+        if ($emailExists) {
+            $msg = "البريد الإلكتروني مسجل مسبقًا";
+        } else {
+            $user = [
+                "first_name" => $first_name,
+                "last_name" => $last_name,
+                "email" => $email,
+                "password" => $password
+            ];
+
+            $users[] = $user;
+            setcookie('users', json_encode($users), $expiry,'/');
+
+            $_SESSION['first_name'] = $first_name;
+            $_SESSION['last_name'] = $last_name;
+            $_SESSION['email'] = $email;
+            $_SESSION['loggedIn'] = true;
+            header('Location: http://localhost/web');
+            exit;
+        }
+    }
+}
 ?>
+<style>
+    .error {
+        padding: 10px 15px;
+        margin: 10px;
+        border-radius: 10px;
+        color: white;
+        font-weight: bold;
+        background-color: rgba(208, 63, 63, 0.7);
+
+    }
+</style>
+
 <!DOCTYPE html>
 <html lang="ar">
 
@@ -23,7 +82,7 @@ if ($loggedIn) {
 </head>
 
 <body>
-    <form action="http://localhost/web/database.php" method="post" >
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
         <a href="/web">
             <img src="../../assets/images/logo.png" alt="logo" width="150px">
         </a>
@@ -44,6 +103,14 @@ if ($loggedIn) {
             كلمة السر :
             <input name="password" type="password">
         </div>
+        <?php
+        if (!empty($msg)) {
+            echo "<div class='error'>
+            {$msg}
+            </div>";
+        }
+
+        ?>
         <br>
         <input id="submit" type="submit" name="signup" value="إنشاء حساب">
         <br>

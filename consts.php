@@ -1,5 +1,4 @@
 <?php
-$users =  [];
 $cart =  [];
 $products = [
     [
@@ -87,4 +86,3 @@ $products = [
         'image' => 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/homepod-select-202210_FMT_WHH?wid=640&hei=600&fmt=jpeg&qlt=90&.v=1670557209437'
     ]
 ];
-

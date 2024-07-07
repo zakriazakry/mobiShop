@@ -7,14 +7,21 @@ if (!isset($_SESSION['cart'])) {
 }
 
 $loggedIn = isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true;
-if (isset($_POST['product'])) {
-
+if (isset($_POST['addCart'])) {
+echo "ss";
   if (!$loggedIn) {
     header('Location: http://localhost/web/auth/login');
     exit;
   }
 
-  $product = json_decode($_POST['product'], true);
+  $product = [
+    'id' =>$_POST['id'],
+    'name' =>$_POST['name'],
+    'description' =>$_POST['description'],
+    'price' =>$_POST['price'],
+    'image' =>$_POST['image']
+     
+  ];
 
   $productExists = false;
   foreach ($_SESSION['cart'] as $cartProduct) {
@@ -28,7 +35,14 @@ if (isset($_POST['product'])) {
     $_SESSION['cart'][] = $product;
   }
 }
-// print_r($_SESSION['cart']);
+
+if (isset($_POST['logout'])) {
+  session_unset();
+  session_destroy();
+  header('Location: /web');
+  exit;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -39,20 +53,18 @@ if (isset($_POST['product'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>موبي شوب</title>
   <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" />
 </head>
-
 <body>
   <!-- nav bar start -->
   <nav>
     <a id="logo" href="/web">
       <?php
       if (!$loggedIn) {
-        # code...
         echo "
         <img src='./assets/images/logo.png' alt='logo' width='100px'>
         ";
@@ -62,9 +74,8 @@ if (isset($_POST['product'])) {
         {$_SESSION['first_name']} {$_SESSION['last_name']}
         
         EOD;
-        
       }
-      
+
       ?>
     </a>
     <ul>
@@ -75,27 +86,26 @@ if (isset($_POST['product'])) {
     </ul>
     <?php
     if (isset($_SESSION["email"])) {
-      echo "<form action='http://localhost/web/database.php' method='post'> ";
+      $count = count($_SESSION['cart']) ?? 0;
+      echo "<form action='{$_SERVER['PHP_SELF']}' method='post'> ";
       echo "<div class='cartHoverWrapper'> 
-                <i class='fa-solid fa-cart-shopping cartHover'></i> 
+               ({$count}) <i class='fa-solid fa-cart-shopping cartHover'></i> 
               <input class='buttonBorder' type='submit' name='logout' value='تسجيل الخروج'> 
               </form>
                 ";
 
       if (!empty($_SESSION['cart'])) {
-
         echo "
           <div class='cart cartHover'>
               <ul>";
         foreach ($_SESSION['cart'] as $key => $value) {
-          echo "
-                                <li>
-                                  <img src={$value['image']} width='60px' alt=''>
-                                  <div class='cartdetails'>
-                                    <p>{$value['name']}</p>
-                                    <p>{$value['price']} $</p>
-                                  </div>
-                                </li>";
+          echo "<li>
+                    <img src={$value['image']} width='60px' alt=''>
+                    <div class='cartdetails'>
+                    <p>{$value['name']}</p>
+                    <p>{$value['price']} $</p>
+                  </div>
+                </li>";
         }
 
         echo  "
@@ -134,7 +144,7 @@ if (isset($_POST['product'])) {
           سلسلة الموديل: أبل ايفون 15 ونوع الشريحة نانو.</p>
 
         <div>
-          <a class="button" href=""> اشتري الان! <span>s</span> <i class="fa-brands fa-opencart"></i> <span>s</span></a>
+          <a class="button" href=""> اشتري الان! <span>s</span> <i class="fa-brands fa-opencart"></i></a>
         </div>
         <div class="soical">
           <i class="fa-brands fa-facebook"></i>
@@ -155,30 +165,40 @@ if (isset($_POST['product'])) {
     </center>
     <br>
     <div class="Products">
-      <!-- List of items -->
-      <?php
-      foreach ($products as $product) {
-        $productStr = json_encode($product);
-        echo <<<EOD
-        <div class="card">
-            <img src="{$product['image']}" height="300px" style="object-fit: cover;" alt="{$product['name']}" width="250px">
-            <h3>{$product['name']}</h3>
-            <p>{$product['description']}</p>
-            <div class="row">
-                <p>{$product['price']} دولار</p>
-                <form method="POST" action="{$_SERVER['PHP_SELF']}">
-                    <input type="hidden" name="product" value='{$productStr}'>
-                    <input type="submit" name="addCart" class="button" value="إضافة إلى السلة">
-                </form>
-            </div>
+    <?php
+foreach ($products as $product) {
+    $productID = $product['id'];
+    $productName = $product['name'];
+    $productDescription = $product['description'];
+    $productPrice = $product['price'];
+    $productImage = $product['image'];
+
+    echo <<<EOD
+    <div class="card">
+        <a href="http://localhost/web/product/index.php?id=$productID&name={$productName}&description={$productDescription}&price={$productPrice}&image={$productImage}">
+            <img src="{$productImage}" alt="{$productName}">
+            <h3>{$productName}</h3>
+            <p>{$productDescription}</p>
+        </a>
+        <div class="row">
+            <p>{$productPrice} د.ل</p>
+            <form method="POST" action="{$_SERVER['PHP_SELF']}">
+                <input type="hidden" name="id" value="{$productID}">
+                <input type="hidden" name="name" value="{$productName}">
+                <input type="hidden" name="description" value="{$productDescription}">
+                <input type="hidden" name="price" value="{$productPrice}">
+                <input type="hidden" name="image" value="{$productImage}">
+                <input type="submit" name="addCart" class="button" value="إضافة إلى السلة">
+            </form>
         </div>
-        EOD;
-      }
-
-
-
-      ?>
     </div>
+    EOD;
+}
+?>
+
+    </div>
+
+
 
     <br>
     <br>
@@ -189,10 +209,7 @@ if (isset($_POST['product'])) {
       <p>متجر متخصص في بيع جميع القطع الإلكترونية و كماليات الهواتف من اكسسورات والخ... نتميز بسرعه في التوصيل و اسعارنا الرخيصة</p>
     </div>
     <!-- About setion end -->
-
-    <div class="footer">
-      Copy Rigth zakria nasser zekri 2024
-    </div>
+<?php include"./footer.php";?>
 </body>
 
 </html>

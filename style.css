@@ -22,6 +22,27 @@
      direction: rtl;
  }
 
+a{
+    text-decoration: none;
+    color: #000;
+    scale: 1;
+    transition: 0.3s;
+}
+
+a:hover{
+    scale: 1.05;
+    transition: 0.3s;
+}
+ .error {
+    padding: 10px 15px;
+    margin: 10px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    background-color: rgba(208, 63, 63, 0.7);
+
+}
+
  .hidden {
      display: none;
      overflow: hidden;
@@ -52,7 +73,10 @@
      scale: 1;
      transition: 0.4s;
  }
-
+ .button:hover{
+     scale: 1.05;
+     transition: 0.4s;
+ }
  .buttonBorder {
      text-decoration: none;
      /* border: 1px solid var(--main-color); */
@@ -65,8 +89,13 @@
      border: none;
      background: var(--bg-color);
      cursor: pointer;
+     scale: 1;
+     transition: 0.4s;
  }
-
+ .buttonBorder:hover{
+    scale: 1.05;
+    transition: 0.4s;
+ }
  /* Nav bar */
  nav {
      z-index: 99;
@@ -117,7 +146,7 @@
      height: 90vh;
      overflow: hidden;
      display: flex;
-     flex-direction: column;
+     /* flex-direction: column; */
      justify-content: space-around;
      align-items: center;
      padding: 10px 25px;
@@ -179,9 +208,13 @@
      scale: 1.0;
      transition: 0.4s;
  }
+ .Products .card a h3{
+    text-decoration: none;
+    color: #000;
+ }
 
  .Products .card:hover {
-     scale: 1.05;
+     scale: 1.03;
      transition: 0.4s;
  }
 
@@ -190,6 +223,14 @@
      font-size: 13px;
      margin: 10px 0;
  }
+ .Products .card img {
+    width: 250px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid var(--main-color);
+}
+
 
  .Products .card .row {
      display: flex;
@@ -232,7 +273,8 @@
  }
 
  .cart ul li {
-     list-style: none;
+    margin-right: 10px;
+    list-style: none;
      display: flex;
      align-items: center;
      justify-content: start;
@@ -242,7 +284,7 @@
  }
 
  .cart ul li:hover {
-     scale: 1.1;
+     scale: 1.05;
      transition: 0.4s;
  }
 
@@ -268,6 +310,7 @@
  .footer {
      display: flex;
      flex-direction: column;
+     bottom: 0;
      justify-content: center;
      gap: 10px;
      align-items: center;
@@ -290,3 +333,4 @@
      background-color: #123;
      color: #ffffff;
  }
+

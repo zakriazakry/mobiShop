@@ -5,6 +5,29 @@ if ($loggedIn) {
     header('Location: http://localhost/web');
     exit;
 }
+
+$msg = "";
+
+if (isset($_POST['login']) && isset($_COOKIE['users'])) {
+    $email = $_POST['email'];
+    $password  = $_POST['password'];
+    $users = json_decode($_COOKIE['users'], true);
+    $find = false;
+    foreach ($users as $user) {
+        if ($user['email'] == $email && $password == $user['password']) {
+            $_SESSION['first_name'] = $user['first_name'];
+            $_SESSION['last_name'] = $user['last_name'];
+            $_SESSION['email'] = $user['email'];
+            $_SESSION['loggedIn'] = true;
+            header('Location: http://localhost/web');
+            exit;
+        }
+    }
+    if (!$find) {
+        $msg = "البريد الإلكتروني أو كلمة المرور غير صحيحة";
+    }
+}
+
 ?>
 
 
@@ -19,7 +42,7 @@ if ($loggedIn) {
     <title>موبي شوب</title>
     <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="../../style.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
@@ -27,8 +50,8 @@ if ($loggedIn) {
 </head>
 
 <body>
- 
-    <form action="http://localhost/web/database.php" method="post">
+
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
         <a href="/web">
             <img src="../../assets/images/logo.png" alt="logo" width="150px">
         </a>
@@ -44,8 +67,17 @@ if ($loggedIn) {
             كلمة السر :
             <input type="password" name="password">
         </div>
+        <?php
+        if (!empty($msg)) {
+            echo "<div class='error'>
+            {$msg}
+            </div>";
+        }
+
+        ?>
         <br>
         <input id="submit" type="submit" name="login" value="تسجيل الدخول">
+
         <br>
         <a href="http://localhost/web/auth/signup/" style="text-decoration: none;">إنشاء حساب جديد</a>
     </form>

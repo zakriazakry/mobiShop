@@ -11,6 +11,12 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST' || !isset($_SESSION['cart']) ) {
 $cart = $_SESSION['cart'];
 $_SESSION['cart'] = [];
 
+$totalinvice = 0;
+
+foreach ($cart as  $value) {
+    $totalinvice += $value['price'];
+}
+
 ?>
 
 
@@ -32,12 +38,14 @@ $_SESSION['cart'] = [];
     <h1>تمت عملية الدفع بنجاح! </h1> 
     <div class="conanier">
        <div class="headCont">
-        <img src="https://i.pinimg.com/474x/b5/4c/e1/b54ce1bf5679515d1a062c85037eeb1c.jpg" loading="lazy" alt="">
-        <div class="conent">
+       <div class="conent">
             <h2><?php echo $_SESSION['first_name'] . " ".$_SESSION['last_name']; ?></h2>
-            <p>Payment checkout</p>
+            <p>إجمالي الفاتورة</p>
+            <h3><?php echo $totalinvice?> د.ل</h3>
+            </div>
+            <img src="https://i.pinimg.com/474x/b5/4c/e1/b54ce1bf5679515d1a062c85037eeb1c.jpg" loading="lazy" alt="">
         </div>
-       </div>
+      
 <div class="divider">
 </div>
        <ul>
