@@ -14,7 +14,7 @@ function login($email, $password, &$users) {
             exit;
         }
     }
-    echo "<center>";
+    echo "<center>"; 
     echo "<h1>البريد الإلكتروني أو كلمة المرور غير صحيحة</h1>";
     echo "</center>";
 }
