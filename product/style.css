@@ -28,7 +28,7 @@ a{
 }
 .product img{
     margin: 10px;
-    width: 360px;
+    min-width: 260px;
     height: 400px;
     object-fit: cover;
     border-radius: 10px;
