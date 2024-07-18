@@ -1,5 +1,5 @@
 <?php
-// zeko database class
+// zeko database class github
 class DBC
 {
     private $path;
