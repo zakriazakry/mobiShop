@@ -6,17 +6,16 @@ class DBC
 
     public function __construct()
     {
-        $this->path = "core\database\\";
+        $this->path = __DIR__."\database\\";
     }
 
-    public function get($fileName)
+    public  function get($fileName)
     {
         $filePath = $this->path . $fileName . ".json";
         if (file_exists($filePath)) {
             $file = file_get_contents($filePath);
             return json_decode($file, true) ?? [];
         } else {
-            echo "Error of your array";
             return [];
         }
     }
@@ -45,11 +44,12 @@ class DBC
             $currentData = [];
         }
 
-        if (is_array($data)) {
-            $currentData = array_push($currentData, $data);
-        } else {
-            $currentData[] = $data;
-        }
+        // if (is_array($data)) {
+        //     // $currentData = array_merge($currentData, $data);
+        //     return false;
+        // } else {
+        // }
+        $currentData[] = $data;
 
         return $this->set($fileName, $currentData);
     }

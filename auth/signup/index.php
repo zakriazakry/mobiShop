@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once "../../core/DBC.php";
 
 // Check if user is already logged in
 $loggedIn = isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true;
@@ -19,8 +20,10 @@ if (isset($_POST['signup'])) {
     if (empty($first_name) || empty($last_name) || empty($email) || empty($password)) {
         $msg = "يرجى ملء جميع الحقول";
     } else {
-        $expiry = time() + (30 * 24 * 60 * 60);
-        $users = json_decode($_COOKIE['users'], true);
+        // $expiry = time() + (30 * 24 * 60 * 60);
+        // $users = json_decode($_COOKIE['users'], true);
+        $dbc =new DBC();
+        $users = $dbc->get('users');
 
         $emailExists = false;
         foreach ($users as $user) {
@@ -39,10 +42,7 @@ if (isset($_POST['signup'])) {
                 "email" => $email,
                 "password" => $password
             ];
-
-            $users[] = $user;
-            setcookie('users', json_encode($users), $expiry,'/');
-
+            $dbc->add('users',$user);
             $_SESSION['first_name'] = $first_name;
             $_SESSION['last_name'] = $last_name;
             $_SESSION['email'] = $email;

@@ -1,4 +1,6 @@
 <?php
+require_once "../../core/DBC.php";
+
 session_start();
 $loggedIn = isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true;
 if ($loggedIn) {
@@ -7,11 +9,11 @@ if ($loggedIn) {
 }
 
 $msg = "";
-
-if (isset($_POST['login']) && isset($_COOKIE['users'])) {
+$dbc =new DBC();
+$users = $dbc->get('users');
+if (isset($_POST['login']) && isset($users)) {
     $email = $_POST['email'];
     $password  = $_POST['password'];
-    $users = json_decode($_COOKIE['users'], true);
     $find = false;
     foreach ($users as $user) {
         if ($user['email'] == $email && $password == $user['password']) {
