@@ -1,6 +1,6 @@
 <?php
 // zeko database class 
-class DBC
+class DBC 
 {
     private $path;
 
