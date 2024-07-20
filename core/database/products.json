@@ -82,26 +82,5 @@
         "description": "\u0645\u0643\u0628\u0631 \u0635\u0648\u062a \u0630\u0643\u064a \u0645\u0646 \u0622\u0628\u0644.",
         "price": 299,
         "image": "https:\/\/store.storeimages.cdn-apple.com\/4982\/as-images.apple.com\/is\/homepod-select-202210_FMT_WHH?wid=640&hei=600&fmt=jpeg&qlt=90&.v=1670557209437"
-    },
-    {
-        "id": 13,
-        "name": "asd",
-        "description": "asd",
-        "price": "sad",
-        "image": "uploads\/logo.png"
-    },
-    {
-        "id": 14,
-        "name": "qw",
-        "description": "qwe",
-        "price": "2",
-        "image": "uploads\/39ab997d334df9595c4737753d84dd32.jpg"
-    },
-    {
-        "id": 15,
-        "name": "qw",
-        "description": "qwe",
-        "price": "2",
-        "image": "uploads\/39ab997d334df9595c4737753d84dd32.jpg"
     }
 ]

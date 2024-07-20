@@ -1,14 +1,14 @@
 <?php
 require_once "../core/DBC.php";
 $DBC = new DBC();
+$msg = "";
 
-if (isset($_POST["submit"])) {
+if (isset($_POST["submit"]) && $_SERVER['REQUEST_METHOD'] == "POST") {
     $name = $_POST['ProductName'];
     $decs = $_POST['ProductDesc'];
     $price = $_POST['price'];
     $image = $_FILES['image'];
     $targetDir = "uploads/";
-    $msg = "";
     if (!is_dir($targetDir)) {
         mkdir($targetDir, 0777, true);
     }
@@ -72,6 +72,7 @@ $products = $DBC->get('products');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
+    <link rel="shortcut icon" href="../assets/images/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="./style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -82,10 +83,11 @@ $products = $DBC->get('products');
 
 <body>
     <div class="title">
-        <h1>Dashboard Admin</h1>
+        <h1>Admin Dashboard</h1>
     </div>
     <div class="content">
         <form action="#" method="post" enctype="multipart/form-data">
+            <img src="../assets/images/logo.png" width="140px">
             <div class="file-input-container">
                 <label for="image">صورة المنتج</label>
                 <input type="file" name="image" id="image" onchange="showFileName(this)" required>
@@ -128,7 +130,7 @@ $products = $DBC->get('products');
                         echo <<<EOD
                             <tr>
                                 <td>{$product['id']}</td>
-                                <td data-label='الصورة'><img src='{$product['image']}' alt='{$product['name']}' width='100px'></td>
+                                <td data-label='الصورة'><img src='{$product['image']}' alt='{$product['name']}' width='100px' higth='140px'></td>
                                 <td data-label='الاسم'>{$product['name']}</td>
                                 <td data-label='الوصف'>{$product['description']}</td>
                                 <td data-label='السعر'>\${$product['price']}</td>
