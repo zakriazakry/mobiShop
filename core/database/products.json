@@ -1,0 +1,107 @@
+[
+    {
+        "id": 1,
+        "name": "iPhone 15 Pro Max",
+        "description": "\u0623\u062d\u062f\u062b \u0625\u0635\u062f\u0627\u0631\u0627\u062a \u0622\u064a\u0641\u0648\u0646 \u0645\u0639 \u0645\u064a\u0632\u0627\u062a \u0645\u062a\u0642\u062f\u0645\u0629.",
+        "price": 1099,
+        "image": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcRP6mkFtCHcnvG_55fRC912F9NAn-5YnQXztw&s"
+    },
+    {
+        "id": 2,
+        "name": "iPad Pro",
+        "description": "\u062c\u0647\u0627\u0632 \u0622\u064a\u0628\u0627\u062f \u0628\u0631\u0648 \u0628\u0645\u064a\u0632\u0627\u062a \u0627\u062d\u062a\u0631\u0627\u0641\u064a\u0629.",
+        "price": 999,
+        "image": "https:\/\/ios.tahastore.ly\/wp-content\/uploads\/2023\/04\/Apple-iPad-Pro-space-gray-2up-221018_big.jpg.large_.jpg"
+    },
+    {
+        "id": 3,
+        "name": "MacBook Air",
+        "description": "\u0644\u0627\u0628\u062a\u0648\u0628 \u062e\u0641\u064a\u0641 \u0648\u0642\u0648\u064a \u0645\u0646 \u0622\u0628\u0644.",
+        "price": 999,
+        "image": "https:\/\/store.storeimages.cdn-apple.com\/4982\/as-images.apple.com\/is\/macbookair-og-202402?wid=600&hei=315&fmt=jpeg&qlt=95&.v=1707414684423"
+    },
+    {
+        "id": 4,
+        "name": "Apple Watch Series 8",
+        "description": "\u0633\u0627\u0639\u0629 \u0622\u0628\u0644 \u0627\u0644\u0630\u0643\u064a\u0629 \u0628\u0645\u064a\u0632\u0627\u062a \u0635\u062d\u064a\u0629.",
+        "price": 399,
+        "image": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcSI24LyIuNcedA0c3UkbGxI_APtHNR9RUQ91Q&s"
+    },
+    {
+        "id": 5,
+        "name": "AirPods Pro",
+        "description": "\u0633\u0645\u0627\u0639\u0627\u062a \u0622\u0628\u0644 \u0627\u0644\u0644\u0627\u0633\u0644\u0643\u064a\u0629 \u0627\u0644\u0645\u062a\u0642\u062f\u0645\u0629.",
+        "price": 249,
+        "image": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcTXIdvrBhFFBg7q8SQHkTncfO5Jy-b1-2TOWQ&s"
+    },
+    {
+        "id": 6,
+        "name": "Apple TV 4K",
+        "description": "\u062a\u062c\u0631\u0628\u0629 \u062a\u0631\u0641\u064a\u0647\u064a\u0629 4K \u0645\u062a\u0643\u0627\u0645\u0644\u0629.",
+        "price": 179,
+        "image": "https:\/\/m.media-amazon.com\/images\/I\/51Y-Dulc3bL._AC_UF894,1000_QL80_.jpg"
+    },
+    {
+        "id": 7,
+        "name": "iMac 24-inch",
+        "description": "\u062c\u0647\u0627\u0632 iMac \u0628\u0634\u0627\u0634\u0629 24 \u0628\u0648\u0635\u0629.",
+        "price": 1299,
+        "image": "https:\/\/store.storeimages.cdn-apple.com\/4982\/as-images.apple.com\/is\/refurb-imac-24-no-id-blue-2021?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1638564538000"
+    },
+    {
+        "id": 8,
+        "name": "Mac Mini",
+        "description": "\u062d\u0627\u0633\u0648\u0628 \u0645\u0643\u062a\u0628\u064a \u0635\u063a\u064a\u0631 \u0648\u0642\u0648\u064a.",
+        "price": 699,
+        "image": "https:\/\/store.storeimages.cdn-apple.com\/4982\/as-images.apple.com\/is\/mac-mini-hero-202301_FMT_WHH?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1671503802341"
+    },
+    {
+        "id": 9,
+        "name": "iPhone SE",
+        "description": "\u0622\u064a\u0641\u0648\u0646 \u0635\u063a\u064a\u0631 \u0627\u0644\u062d\u062c\u0645 \u0648\u0642\u0648\u064a \u0627\u0644\u0623\u062f\u0627\u0621.",
+        "price": 399,
+        "image": "https:\/\/www.apple.com\/newsroom\/images\/product\/iphone\/standard\/Apple_new-iphone-se-white_04152020_big.jpg.large.jpg"
+    },
+    {
+        "id": 10,
+        "name": "iPad Mini",
+        "description": "\u0622\u064a\u0628\u0627\u062f \u0635\u063a\u064a\u0631 \u0627\u0644\u062d\u062c\u0645 \u0648\u0633\u0647\u0644 \u0627\u0644\u062d\u0645\u0644.",
+        "price": 499,
+        "image": "https:\/\/www.blesssky.com\/wp-content\/uploads\/2023\/05\/img-product-iPad_mini_Wi-Fi_Pink-2.jpg"
+    },
+    {
+        "id": 11,
+        "name": "MacBook Pro",
+        "description": "\u0644\u0627\u0628\u062a\u0648\u0628 \u0627\u062d\u062a\u0631\u0627\u0641\u064a \u0628\u0623\u062f\u0627\u0621 \u0639\u0627\u0644\u064a.",
+        "price": 1299,
+        "image": "https:\/\/cdsassets.apple.com\/live\/SZLF0YNV\/images\/sp\/111339_sp818-mbp13touch-silver-select-202005.png"
+    },
+    {
+        "id": 12,
+        "name": "Apple HomePod",
+        "description": "\u0645\u0643\u0628\u0631 \u0635\u0648\u062a \u0630\u0643\u064a \u0645\u0646 \u0622\u0628\u0644.",
+        "price": 299,
+        "image": "https:\/\/store.storeimages.cdn-apple.com\/4982\/as-images.apple.com\/is\/homepod-select-202210_FMT_WHH?wid=640&hei=600&fmt=jpeg&qlt=90&.v=1670557209437"
+    },
+    {
+        "id": 13,
+        "name": "asd",
+        "description": "asd",
+        "price": "sad",
+        "image": "uploads\/logo.png"
+    },
+    {
+        "id": 14,
+        "name": "qw",
+        "description": "qwe",
+        "price": "2",
+        "image": "uploads\/39ab997d334df9595c4737753d84dd32.jpg"
+    },
+    {
+        "id": 15,
+        "name": "qw",
+        "description": "qwe",
+        "price": "2",
+        "image": "uploads\/39ab997d334df9595c4737753d84dd32.jpg"
+    }
+]

@@ -1,0 +1,131 @@
+.title {
+  background: #424242;
+  text-align: center;
+  color: white;
+  padding: 20px 0;
+}
+.content{
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    width: 100%;
+}
+form{
+    /* box-shadow: 0px0px 8px #dcdcdc; */
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    /* width: 100%; */
+    border: 2px solid var(--bg-color);
+    border-radius: 10px;
+    padding: 50px;
+}
+form div input,textarea{
+    padding: 0 8px;
+    vertical-align: middle;
+    border-radius: 7px;
+    width: 100%;
+    min-height: 45px;
+    margin: 2px;
+    background-color: #ffffff;
+    border: 1px solid rgba(36,28,21,0.3);
+    transition: all 0.2s ease-in-out 0s;
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: normal;
+    outline: none;
+    box-shadow: 22px;
+}
+
+form div input:focus{
+    outline: none;
+    border: 1px solid #007c89;
+    box-shadow: inset 0 0 0 1px #007c89;
+}
+form #submit{
+    border: none;
+    padding: 8px 40px;
+    margin: 8px;
+    /* width: 75%; */
+    border-radius: 10px;
+    background-color:var(--main-color) ;
+    color: white;
+}
+
+/* table */
+.table-container {
+    margin: 10px auto;
+    width: 100%;
+    height: 86vh;
+    overflow-y: scroll;
+}
+
+.table {
+ 
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.table th,
+.table td {
+    padding: 0px;
+    border: 1px solid #ddd;
+    vertical-align: middle;
+}
+
+.table thead th {
+    background-color: #f8f9fa;
+    color: #333;
+    font-weight: bold;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.table img {
+    border-radius: 10px;
+    width: 100px;
+    height: auto;
+}
+/* input */
+
+.file-input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+}
+
+.file-input-container label {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.file-input-container input[type="file"] {
+    display: none;
+}
+
+.file-input-container .custom-file-label {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.file-input-container .custom-file-label:hover {
+    background-color: #0056b3;
+}
+
+.file-input-container .file-name {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
+}

@@ -9,7 +9,7 @@ class DBC
         $this->path = __DIR__."\database\\";
     }
 
-    public  function get($fileName)
+    public function get($fileName)
     {
         $filePath = $this->path . $fileName . ".json";
         if (file_exists($filePath)) {

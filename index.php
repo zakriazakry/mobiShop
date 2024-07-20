@@ -8,7 +8,6 @@ if (!isset($_SESSION['cart'])) {
 
 $loggedIn = isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true;
 if (isset($_POST['addCart'])) {
-echo "ss";
   if (!$loggedIn) {
     header('Location: http://localhost/web/auth/login');
     exit;
