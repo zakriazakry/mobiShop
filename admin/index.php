@@ -1,7 +1,16 @@
 <?php
+session_start();
+
 require_once "../core/DBC.php";
 $DBC = new DBC();
 $msg = "";
+$loggedIn = isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true;
+
+if (!$loggedIn ||  $_SESSION['email'] != "admin@gmail.com" ) {
+    header("location:/web");
+    exit(403);
+}
+
 
 if (isset($_POST["submit"]) && $_SERVER['REQUEST_METHOD'] == "POST") {
     $name = $_POST['ProductName'];
@@ -46,13 +55,12 @@ if (isset($_POST["submit"]) && $_SERVER['REQUEST_METHOD'] == "POST") {
             $msg =  "تم رفع الملف ". basename($image["name"]) . " بنجاح.";
 
             $products = $DBC->get('products');
-
             $DBC->add('products', [
                 "id" => count($products) + 1,
                 "name" => $name,
                 "description" => $decs,
                 "price" => $price,
-                "image" => $targetFile
+                "image" => "http://localhost/web/admin/".$targetFile
             ]);
         } else {
             $msg =  " حدث خطأ أثناء رفع الملف.";
@@ -133,7 +141,7 @@ $products = $DBC->get('products');
                                 <td data-label='الصورة'><img src='{$product['image']}' alt='{$product['name']}' width='100px' higth='140px'></td>
                                 <td data-label='الاسم'>{$product['name']}</td>
                                 <td data-label='الوصف'>{$product['description']}</td>
-                                <td data-label='السعر'>\${$product['price']}</td>
+                                <td data-label='السعر'> LYD {$product['price']}</td>
                             </tr>
                             EOD;
                     }

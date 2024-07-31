@@ -47,6 +47,7 @@ if (isset($_POST['signup'])) {
             $_SESSION['last_name'] = $last_name;
             $_SESSION['email'] = $email;
             $_SESSION['loggedIn'] = true;
+            $_SESSION['timeLogin'] = time() + 300;
             header('Location: http://localhost/web');
             exit;
         }

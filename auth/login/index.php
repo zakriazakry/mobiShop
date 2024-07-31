@@ -21,6 +21,7 @@ if (isset($_POST['login']) && isset($users)) {
             $_SESSION['last_name'] = $user['last_name'];
             $_SESSION['email'] = $user['email'];
             $_SESSION['loggedIn'] = true;
+            $_SESSION['timeLogin'] = time() + 300; // يخليك 5 دقائق بس
             header('Location: http://localhost/web');
             exit;
         }

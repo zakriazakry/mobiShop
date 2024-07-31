@@ -35,13 +35,12 @@ if (isset($_POST['addCart'])) {
   }
 }
 
-if (isset($_POST['logout'])) {
+if ((isset($_POST['logout']) && isset($_SESSION['timeLogin'])) || (isset($_SESSION['timeLogin']) && (time() > $_SESSION['timeLogin']))) {
   session_unset();
   session_destroy();
   header('Location: /web');
   exit;
 }
-
 ?>
 
 <!DOCTYPE html>
