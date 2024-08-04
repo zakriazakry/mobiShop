@@ -1,14 +1,14 @@
 [
     {
-        "first_name": "ZAKRIA",
-        "last_name": "ZAKRY",
+        "first_name": "admin",
+        "last_name": "Admin",
         "email": "admin@gmail.com",
         "password": "12345678"
     },
     {
         "first_name": "ZAKRIA",
         "last_name": "ZAKRY",
-        "email": "ad2min@gmail.com",
+        "email": "user@gmail.com",
         "password": "12345678"
     }
 ]

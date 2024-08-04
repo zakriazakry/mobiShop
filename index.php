@@ -50,6 +50,8 @@ if ((isset($_POST['logout']) && isset($_SESSION['timeLogin'])) || (isset($_SESSI
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>موبي شوب</title>
+  <!-- counter -->
+  <meta http-equiv="refresh" content = "300; url=http://localhost/web/auth/login">
   <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
   <link rel="stylesheet" href="./style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
